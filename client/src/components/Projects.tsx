@@ -3,27 +3,29 @@ import { useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { Button } from "../components/ui/button";
 import ecommerceImg from "../assets/generated_images/E-commerce_project_thumbnail_33568c07.png"
-import taskManagerImg from "../assets/generated_images/Task_manager_project_thumbnail_c0c1c3ac.png";
+import sdgQuest from "../assets/generated_images/sdg-quest.png"
+    
 import mobileAppImg from "../assets/generated_images/Mobile_app_design_showcase_e0ca896a.png";
 
 //todo: remove mock functionality
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A modern online shopping platform with real-time inventory management and secure payment processing",
+    title: "Coding Club Webapp",
+    description: "A modern online programming language learning platform with real-time code-editor and learning resources",
     image: ecommerceImg,
     category: "Full Stack",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    liveUrl: "#",
+    technologies: ["Html", "Css", "JavaScript", "PHP", ""],
+    liveUrl: "https://sustainable-dev-quest-dibyadd5p-rakhikamboz7.vercel.app",
+
     githubUrl: "#",
   },
   {
-    title: "Task Management App",
+    title: "SDG Quest",
     description: "Collaborative project management tool with drag-and-drop kanban boards and team features",
-    image: taskManagerImg,
+    image: sdgQuest,
     category: "Full Stack",
     technologies: ["React", "Express", "PostgreSQL", "Socket.io"],
-    liveUrl: "#",
+    liveUrl: "https://sustainable-dev-quest-dibyadd5p-rakhikamboz7.vercel.app",
     githubUrl: "#",
   },
   {
