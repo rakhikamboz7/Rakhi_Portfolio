@@ -63,10 +63,15 @@ export default function ProjectCard({
 
         <div className="flex gap-2">
           {liveUrl && (
-            <Button size="sm" variant="default" className="flex-1" data-testid="button-live-demo">
+            <a href={liveUrl}
+            target="_blank"
+            rel="noopener noreferer"
+            className="flex-1" data-testid="button-live-demo">
+              <Button size ="sm" variant="default" className="w-full" data-testid="button-live-demo">
               <ExternalLink className="h-4 w-4 mr-2" />
               Live Demo
-            </Button>
+              </Button>
+            </a>
           )}
           {githubUrl && (
             <Button size="sm" variant="outline" className="flex-1" data-testid="button-github">

@@ -1,32 +1,20 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import profileImg from 
-"../assets/generated_images/Professional_portrait_for_Rakhi_12ef3102.png"
+"../assets/generated_images/Rakhi-portfolio.jpg"
 
 const timelineData = [
   {
-    year: "2023 - Present",
-    title: "Senior Full Stack Developer",
-    company: "Tech Innovations Inc.",
-    description: "Leading development of scalable web applications using React, Node.js, and MongoDB",
-  },
-  {
-    year: "2021 - 2023",
-    title: "UI/UX Designer & Developer",
-    company: "Creative Solutions Ltd.",
-    description: "Designed and developed user-centric interfaces for mobile and web platforms",
-  },
-  {
-    year: "2019 - 2021",
-    title: "Frontend Developer",
-    company: "Digital Agency Co.",
+    year: "2025 - 2026",
+    title: "Full Stack Developer",
+    company: "Panacea Infosec",
     description: "Built responsive websites and interactive web experiences",
   },
   {
-    year: "2015 - 2019",
+    year: "2021 - 2025",
     title: "B.Tech in Computer Science",
-    company: "University of Technology",
-    description: "Specialized in Software Engineering and Human-Computer Interaction",
+    company: "Eternal University Baru Sahib",
+    description: "Specialized in Software Engineering",
   },
 ];
 
