@@ -14,7 +14,7 @@ interface HeroProps {
   onContactOpen: () => void;
 }
 
-export default function Hero({ onContactOpen: _onContactOpen }: HeroProps) {
+export default function Hero({ onContactOpen }: HeroProps) {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -104,11 +104,11 @@ export default function Hero({ onContactOpen: _onContactOpen }: HeroProps) {
           </motion.div>
 
           {/* Title — overflow-hidden per line for slide-up */}
-          <div className="mb-3 space-y-0.5">
+          <div className="mb-4 space-y-0.5">
             {titleLines.map((word, i) => (
               <div key={i} className="overflow-hidden leading-[1.06]">
                 <motion.h1
-                  className={`font-display text-[clamp(2rem,8vw,5.8rem)] font-bold tracking-tight ${
+                  className={`font-display text-[clamp(2.5rem,8vw,5.9rem)] font-bold tracking-tight ${
                     i === 1 ? "text-[var(--accent)]" : "text-[var(--text-primary)]"
                   }`}
                   initial={{ y: "110%" }}
@@ -145,8 +145,8 @@ export default function Hero({ onContactOpen: _onContactOpen }: HeroProps) {
             Problem solving is what makes me unique.
           </motion.p>
 
-          {/* Stats */}
-         
+          
+
           {/* CTAs — View CV primary exactly like benrobo */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -171,6 +171,7 @@ export default function Hero({ onContactOpen: _onContactOpen }: HeroProps) {
               See My Work
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
             </button>
+           
           </motion.div>
         </div>
       </motion.div>
