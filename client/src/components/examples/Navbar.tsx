@@ -4,7 +4,9 @@ import { ThemeProvider } from '../ThemeProvider';
 export default function NavbarExample() {
   return (
     <ThemeProvider>
-      <Navbar />
+      <Navbar onContactOpen={function (): void {
+        throw new Error('Function not implemented.');
+      } } />
     </ThemeProvider>
   );
 }

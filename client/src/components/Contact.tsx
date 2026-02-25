@@ -1,122 +1,134 @@
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Send, Github, Linkedin, Twitter, Mail } from "lucide-react";
-import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
-import { Textarea } from "../components/ui/textarea";
-import { useToast } from "../hooks/use-toast";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, Send, MessageCircle } from "lucide-react";
+import { useState } from "react";
 
-export default function Contact() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+interface ContactPanelProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onOpen: () => void;
+}
+
+export default function ContactPanel({ isOpen, onClose, onOpen }: ContactPanelProps) {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sent, setSent] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    setSent(true);
+    setTimeout(() => { setSent(false); setForm({ name: "", email: "", message: "" }); onClose(); }, 2500);
   };
 
-  const socials = [
-    { icon: Github, label: "GitHub", url: "https://github.com" },
-    { icon: Linkedin, label: "LinkedIn", url: "https://linkedin.com" },
-    { icon: Twitter, label: "Twitter", url: "https://twitter.com" },
-    { icon: Mail, label: "Email", url: "mailto:rakhi@example.com" },
-  ];
-
   return (
-    <section id="contact" className="py-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, x: -20 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
-          <div className="h-1 w-20 bg-gradient-to-r from-primary to-chart-2 rounded-full" />
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+    <>
+      {/* Floating trigger button (always visible when panel closed) */}
+      <AnimatePresence>
+        {!isOpen && (
+          <motion.button
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            onClick={onOpen}
+            data-testid="button-contact-trigger"
+            className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[var(--accent)] text-black flex items-center justify-center shadow-[0_4px_24px_var(--accent-glow)] hover:scale-105 transition-transform duration-200"
+            aria-label="Open contact"
           >
-            <h3 className="text-2xl font-semibold mb-4">Let's work together</h3>
-            <p className="text-muted-foreground mb-8 leading-relaxed">
-              I'm always interested in hearing about new projects and opportunities. 
-              Whether you have a question or just want to say hi, feel free to reach out!
-            </p>
+            <MessageCircle size={22} />
+          </motion.button>
+        )}
+      </AnimatePresence>
 
-            <div className="flex flex-wrap gap-4">
-              {socials.map((social) => (
-                <Button
-                  key={social.label}
-                  variant="outline"
-                  size="icon"
-                  className="rounded-full"
-                  data-testid={`social-${social.label.toLowerCase()}`}
-                  onClick={() => console.log(`Opening ${social.label}`)}
+      {/* Panel */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop blur */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm"
+              onClick={onClose}
+            />
+
+            {/* Slide-in panel from right-bottom — matches benrobo image */}
+            <motion.div
+              initial={{ opacity: 0, x: 80, y: 20, scale: 0.92 }}
+              animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 80, y: 20, scale: 0.92 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed bottom-6 right-6 z-50 w-[340px] md:w-[380px] rounded-2xl border border-[var(--border)] bg-[var(--bg-secondary)] shadow-2xl overflow-hidden"
+              data-testid="contact-panel"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border)]">
+                <h3 className="font-display font-bold text-[var(--text-primary)] text-lg">Contact Me</h3>
+                <button
+                  onClick={onClose}
+                  className="w-8 h-8 rounded-full bg-red-500 text-white flex items-center justify-center hover:bg-red-600 transition-colors"
+                  aria-label="Close"
+                  data-testid="button-close-contact"
                 >
-                  <social.icon className="h-5 w-5" />
-                </Button>
-              ))}
-            </div>
-          </motion.div>
+                  <X size={14} />
+                </button>
+              </div>
 
-          <motion.form
-            initial={{ opacity: 0, x: 20 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            onSubmit={handleSubmit}
-            className="space-y-6"
-          >
-            <div>
-              <Input
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                required
-                data-testid="input-name"
-              />
-            </div>
-            
-            <div>
-              <Input
-                type="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                required
-                data-testid="input-email"
-              />
-            </div>
-            
-            <div>
-              <Textarea
-                placeholder="Your Message"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                rows={6}
-                required
-                data-testid="input-message"
-              />
-            </div>
-
-            <Button type="submit" size="lg" className="w-full" data-testid="button-submit">
-              Send Message
-              <Send className="ml-2 h-4 w-4" />
-            </Button>
-          </motion.form>
-        </div>
-      </div>
-    </section>
+              {/* Form */}
+              <form onSubmit={handleSubmit} className="p-6 flex flex-col gap-4">
+                {sent ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="py-8 flex flex-col items-center gap-3 text-center"
+                  >
+                    <span className="text-4xl">🎉</span>
+                    <p className="font-display font-bold text-[var(--text-primary)]">Message sent!</p>
+                    <p className="text-[var(--text-muted)] text-sm">I'll get back to you soon.</p>
+                  </motion.div>
+                ) : (
+                  <>
+                    <input
+                      type="text"
+                      placeholder="Full Name"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      required
+                      className="w-full px-4 py-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors"
+                      data-testid="input-name"
+                    />
+                    <input
+                      type="email"
+                      placeholder="johndoe@mail.com"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      required
+                      className="w-full px-4 py-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors"
+                      data-testid="input-email"
+                    />
+                    <textarea
+                      placeholder="Message"
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      required
+                      rows={5}
+                      className="w-full px-4 py-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] text-sm focus:outline-none focus:border-[var(--accent)] transition-colors resize-none"
+                      data-testid="input-message"
+                    />
+                    <button
+                      type="submit"
+                      className="w-full py-3 rounded-xl bg-[var(--text-primary)] text-[var(--bg)] font-semibold text-sm flex items-center justify-center gap-2 hover:bg-[var(--accent)] hover:text-black transition-all duration-200"
+                      data-testid="button-send-message"
+                    >
+                      Send Message
+                      <Send size={14} />
+                    </button>
+                  </>
+                )}
+              </form>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
