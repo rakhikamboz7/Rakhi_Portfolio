@@ -5,8 +5,6 @@ import { useRef, useEffect, useState } from "react";
 const ROLES = [
   "Full Stack Developer",
   "UI/UX Designer",
-  "React Specialist",
-  "TypeScript Expert",
   "Problem Solver",
 ];
 
@@ -14,7 +12,7 @@ interface HeroProps {
   onContactOpen: () => void;
 }
 
-export default function Hero({ onContactOpen }: HeroProps) {
+export default function Hero({ onContactOpen: _onContactOpen }: HeroProps) {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -24,7 +22,6 @@ export default function Hero({ onContactOpen }: HeroProps) {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
 
-  // Typewriter
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -103,7 +100,7 @@ export default function Hero({ onContactOpen }: HeroProps) {
             Available for opportunities
           </motion.div>
 
-          {/* Title — overflow-hidden per line for slide-up */}
+          {/* Title */}
           <div className="mb-4 space-y-0.5">
             {titleLines.map((word, i) => (
               <div key={i} className="overflow-hidden leading-[1.06]">
@@ -145,9 +142,6 @@ export default function Hero({ onContactOpen }: HeroProps) {
             Problem solving is what makes me unique.
           </motion.p>
 
-          
-
-          {/* CTAs — View CV primary exactly like benrobo */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -171,7 +165,6 @@ export default function Hero({ onContactOpen }: HeroProps) {
               See My Work
               <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
             </button>
-           
           </motion.div>
         </div>
       </motion.div>

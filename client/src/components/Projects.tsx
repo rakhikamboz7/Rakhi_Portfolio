@@ -13,38 +13,49 @@ interface Project {
 }
 
 const projects: Project[] = [
+{
+  title: "SDG Quest WebApp",
+  description: "A sustainable development learning and community platform where users explore UN Sustainable Development Goals, take interactive quizzes, and engage in discussions. Implemented role-based authentication, dynamic quiz engine, and CMS-powered content management.",
+  tags: ["React.js", "Node.js", "MongoDB", "Tailwind CSS", "Framer Motion", "Sanity CMS", "JWT Authentication"],
+  liveUrl: "https://sdg-quest-webapp-bqhp.vercel.app/",
+  githubUrl: "https://github.com/rakhikamboz7/SDG-Quest",
+  featured: true,
+  year: "2025",
+},
   {
-    title: "DevFlow — SaaS Platform",
-    description: "A full-featured project management platform built for developer teams. Real-time collaboration, kanban boards, GitHub integration and sprint analytics.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "WebSockets", "Tailwind"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: true,
-    year: "2025",
-  },
-  {
-    title: "Aria Design System",
-    description: "An accessible, composable component library with 60+ components, full dark mode support, and motion primitives built on Radix UI.",
-    tags: ["React", "TypeScript", "Storybook", "Radix UI", "Framer Motion"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: true,
-    year: "2025",
-  },
-  {
-    title: "NeuralChat API",
-    description: "REST + WebSocket API powering real-time AI conversations with streaming support, rate limiting, and fine-tuned response caching.",
-    tags: ["Node.js", "Express", "Redis", "OpenAI", "Docker"],
-    githubUrl: "#",
-    year: "2024",
-  },
-  {
-    title: "PulseMetrics Dashboard",
-    description: "Analytics dashboard with customizable widgets, live data streaming and CSV/PDF export. Reduced client reporting time by 60%.",
-    tags: ["React", "D3.js", "FastAPI", "MongoDB"],
-    liveUrl: "#",
-    year: "2024",
-  },
+  title: "Dr Care – AI Health Assistant",
+  description: "An AI-powered healthcare platform enabling symptom analysis, doctor discovery, appointment booking, and nearby hospital search. Built using Agentic AI with LangChain, Gemini models, real-time slot tracking, and personalized health report generation.",
+  tags: ["FastAPI", "Python", "MongoDB", "LangChain", "Gemini AI", "Firebase", "LocationIQ API", "ChromaDB", "Tailwind CSS", "React"],
+  liveUrl: "#",
+  githubUrl: "#",
+  featured: true,
+  year: "2025",
+},
+ {
+  title: "Aptitude Test WebApp",
+  description: "An employability assessment platform for students featuring timed aptitude quizzes, performance analytics, and AI-generated feedback using GROQ AI for personalized improvement insights.",
+  tags: ["React", "Node.js", "MongoDB Atlas", "Tailwind CSS", "JWT", "GROQ AI"],
+  liveUrl: "https://aptitude-test-webapp.vercel.app/",
+  githubUrl: "https://github.com/rakhikamboz7/Aptitude_Test_Webapp",
+  year: "2024",
+},
+ {
+  title: "STD Health Awareness Platform",
+  description: "A stigma-free sexual health education platform providing confidential assessments, personalized AI-driven feedback, and awareness resources powered by Gemini AI models.",
+  tags: ["React", "Node.js", "MongoDB", "Gemini AI", "Tailwind CSS", "JWT Authentication"],
+  liveUrl: "https://std-awareness-sympto-3hry.bolt.host/",
+  githubUrl: "https://github.com/Rakhikamboj/STD-App",
+  year: "2024",
+},
+{
+  title: "Digital Waste Compliance Engine (ESG)",
+  description: "An ESG waste evaluation system with Admin-Auditor architecture where admins create projects and auditors log hazardous and non-hazardous waste data. Includes compliance scoring, diversion metrics, and dynamic dashboards.",
+  tags: ["React", "Node.js", "MongoDB", "Mongoose", "JWT", "AG Grid", "Recharts", "Role-Based Access Control"],
+  liveUrl: "https://digital-compliance-engine.vercel.app/",
+  githubUrl: "https://github.com/Rakhikamboj/Digital_Compliance_Engine",
+  featured: true,
+  year: "2025",
+}
 ];
 
 export default function Projects() {
@@ -76,7 +87,7 @@ export default function Projects() {
           </ScrollReveal>
           <ScrollReveal delay={0.1} direction="right">
             <a
-              href="https://github.com"
+              href="https://github.com/rakhikamboz7/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-[var(--text-secondary)] text-sm font-medium hover:text-[var(--accent)] transition-colors group"

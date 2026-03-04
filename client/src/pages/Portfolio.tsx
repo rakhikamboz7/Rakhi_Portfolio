@@ -26,8 +26,6 @@ export default function Portfolio() {
           <ArtGallery />
         </main>
         <Footer onContactOpen={() => setContactOpen(true)} />
-
-        {/* Floating contact panel — bottom right only, no separate contact page */}
         <ContactPanel
           isOpen={contactOpen}
           onClose={() => setContactOpen(false)}

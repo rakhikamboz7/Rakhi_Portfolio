@@ -4,7 +4,7 @@ import ScrollReveal, { StaggerContainer, staggerItem } from "./Scrollreveal";
 const skills = [
   { category: "Frontend", items: ["React", "TypeScript", "Next.js", "Framer Motion", "Tailwind CSS", "Figma"] },
   { category: "Backend",  items: ["Node.js", "Express", "PostgreSQL", "MongoDB", "GraphQL", "REST APIs"] },
-  { category: "DevOps",   items: ["Git", "Docker", "AWS", "Vercel", "CI/CD", "Linux"] },
+  { category: "DevOps",   items: ["Git","Vercel"] },
 ];
 
 export default function About() {

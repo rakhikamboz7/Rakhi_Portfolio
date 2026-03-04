@@ -25,16 +25,10 @@ export async function apiRequest(
 
 type UnauthorizedBehavior = "returnNull" | "throw";
 
-/**
- * React Query v5 queryFn type:
- *   (ctx: QueryFunctionContext) => Promise<T>
- */
-type QueryFn<T> = (ctx: { queryKey: string[] }) => Promise<T | null>;
-
 export const getQueryFn =
-  <T>({ on401 }: { on401: UnauthorizedBehavior }): QueryFn<T> =>
-  async ({ queryKey }) => {
-    const url = queryKey.join("/") as string;
+  <T>({ on401 }: { on401: UnauthorizedBehavior }) =>
+  async ({ queryKey }: { queryKey: readonly unknown[] }): Promise<T | null> => {
+    const url = (queryKey as string[]).join("/");
 
     const res = await fetch(url, {
       credentials: "include",
