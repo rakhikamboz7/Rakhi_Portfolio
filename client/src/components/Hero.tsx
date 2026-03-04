@@ -105,7 +105,7 @@ export default function Hero({ onContactOpen: _onContactOpen }: HeroProps) {
             {titleLines.map((word, i) => (
               <div key={i} className="overflow-hidden leading-[1.06]">
                 <motion.h1
-                  className={`font-display text-[clamp(2.5rem,8vw,5.9rem)] font-bold tracking-tight ${
+                  className={`font-display text-[clamp(2rem,8vw,5rem)] font-bold tracking-tight ${
                     i === 1 ? "text-[var(--accent)]" : "text-[var(--text-primary)]"
                   }`}
                   initial={{ y: "110%" }}
