@@ -1,7 +1,6 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { X } from "lucide-react";
-import TailwindIcon from "../assets/generated_images/icons8-tailwind-css-48.png"
 //todo: remove mock functionality
 const skills = [
   {
@@ -52,8 +51,7 @@ const skills = [
   {
     name: "Tailwind",
      icon: (
-      <img
-        src={TailwindIcon}
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
         alt="Tailwind CSS"
         className="w-12 h-12"
       />
