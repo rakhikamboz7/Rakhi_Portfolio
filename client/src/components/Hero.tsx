@@ -369,7 +369,7 @@ export default function Hero({ onContactOpen: _onContactOpen }: HeroProps) {
 
               {/* ── Portrait ── */}
               <div
-                className="absolute rounded-full overflow-hidden bottom-2"
+                className="absolute rounded-full overflow-hidden"
                 style={{
                   width: "236px", height: "236px", zIndex: 20,
                   top: "50%", left: "50%",
@@ -385,24 +385,34 @@ export default function Hero({ onContactOpen: _onContactOpen }: HeroProps) {
                   className="w-full h-full object-cover object-top select-none" draggable={false} />
               </div>
 
-              {/* ── Name tag ── */}
+              {/* Name tag - below portrait with clear margin */}
               <motion.div
                 initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.3 }}
-                className="absolute bottom-5 left-0 right-0 flex flex-col items-center gap-1.5 pointer-events-none"
-                style={{ zIndex: 30 }}
+                className="absolute left-0 right-0 flex flex-col items-center gap-2 pointer-events-none"
+                style={{ zIndex: 30, top: `${C + 118 + 20}px` }}
               >
-                <p className="font-display font-semibold text-base tracking-[0.2em] uppercase"
-                  style={{ color: "var(--text-primary, #fff)" }}>
+                {/* Accent rule */}
+                <div style={{ width: "36px", height: "1.5px", background: ACCENT, borderRadius: "2px", opacity: 0.8 }} />
+
+                {/* Name - vivid purple on both light and dark */}
+                <p
+                  className="font-display font-bold text-lg tracking-[0.22em] uppercase"
+                  style={{ color: ACCENT, textShadow: "0 0 20px rgba(168,85,247,0.55)" }}
+                >
                   Rakhi
                 </p>
+
+                {/* Role */}
                 <div className="flex items-center gap-2">
-                  <div className="h-px w-5" style={{ background: `rgba(168,85,247,0.4)` }} />
-                  <span className="text-[10px] font-mono tracking-[0.16em] uppercase"
-                    style={{ color: ACCENT }}>
+                  <div style={{ width: "24px", height: "1px", background: "rgba(168,85,247,0.4)" }} />
+                  <span
+                    className="text-[10px] font-mono tracking-[0.18em] uppercase"
+                    style={{ color: ACCENT_BRIGHT, opacity: 0.9 }}
+                  >
                     Developer & Designer
                   </span>
-                  <div className="h-px w-5" style={{ background: `rgba(168,85,247,0.4)` }} />
+                  <div style={{ width: "24px", height: "1px", background: "rgba(168,85,247,0.4)" }} />
                 </div>
               </motion.div>
 
