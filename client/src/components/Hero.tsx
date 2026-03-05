@@ -389,7 +389,7 @@ export default function Hero({ onContactOpen: _onContactOpen }: HeroProps) {
               <motion.div
                 initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.3 }}
-                className="absolute left-0 right-0 flex flex-col items-center gap-2 pointer-events-none"
+                className="absolute bottom-auto left-0 right-0 flex flex-col items-center gap-2 pointer-events-none"
                 style={{ zIndex: 30, top: `${C + 118 + 20}px` }}
               >
                 {/* Accent rule */}
