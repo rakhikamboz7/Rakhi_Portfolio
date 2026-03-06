@@ -45,17 +45,7 @@ export default function Footer({ onContactOpen }: FooterProps) {
             </span>
           </div>
 
-          <div className="flex items-center gap-1 text-[var(--text-muted)] text-xs">
-            <span>Crafted with</span>
-            <motion.span
-              animate={{ scale: [1, 1.25, 1] }}
-              transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
-              className="text-red-500 text-base mx-0.5"
-            >
-              ♥
-            </motion.span>
-            <span>and TypeScript</span>
-          </div>
+          
         </div>
       </div>
     </footer>
