@@ -18,8 +18,7 @@ function hexPoints(cx: number, cy: number, r: number, rotation = 0): string {
 // Bright visible colors that work on BOTH dark and light
 const ACCENT       = "#a855f7";   // vivid purple
 const ACCENT_BRIGHT = "#c084fc";  // lighter purple for glow/highlights
-const ACCENT_DIM   = "rgba(168,85,247,0.25)";
-const ACCENT_FAINT = "rgba(168,85,247,0.10)";
+
 
 export default function Hero({ onContactOpen: _onContactOpen }: HeroProps) {
   const containerRef = useRef<HTMLElement>(null);
