@@ -13,7 +13,7 @@ export default function Footer({ onContactOpen }: FooterProps) {
       {/* Big CTA section — matches benrobo footer */}
       <div className="max-w-6xl mx-auto px-6 py-24">
         <ScrollReveal direction="up" delay={0}>
-          <h2 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] font-bold text-[var(--text-primary)] leading-tight tracking-tight mb-4">
+          <h2 className="font-display text-[clamp(1.5rem,7vw,2.5rem)] font-bold text-[var(--text-primary)] leading-tight tracking-tight mb-4">
             Let Make The Impossible{" "}
             <span className="text-[var(--accent)]">Possible.</span>
           </h2>

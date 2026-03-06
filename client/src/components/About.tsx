@@ -9,14 +9,14 @@ const skills = [
 
 export default function About() {
   return (
-    <section id="about" className="py-28 relative overflow-hidden">
+    <section id="about" className="py-8 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Section label */}
         <ScrollReveal direction="left">
           <div className="flex items-center gap-3 mb-14">
             <span className="w-10 h-px bg-[var(--accent)]" />
-            <span className="font-mono text-[var(--accent)] text-xs tracking-widest uppercase">About Me</span>
+            <span className="font-mono text-[var(--accent)] text-1xl tracking-widest uppercase">About Me</span>
           </div>
         </ScrollReveal>
 

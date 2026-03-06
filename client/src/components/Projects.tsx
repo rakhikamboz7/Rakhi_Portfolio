@@ -60,7 +60,7 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-28 relative">
+    <section id="projects" className="py-2 x*:relative">
       {/* Subtle bg pattern */}
       <div
         className="absolute inset-0 opacity-5 pointer-events-none"
@@ -75,14 +75,14 @@ export default function Projects() {
         <ScrollReveal direction="left">
           <div className="flex items-center gap-3 mb-5">
             <span className="w-10 h-px bg-[var(--accent)]" />
-            <span className="font-mono text-[var(--accent)] text-xs tracking-widest uppercase">Projects</span>
+            <span className="font-mono text-[var(--accent)] text-1xl tracking-widest uppercase">Projects</span>
           </div>
         </ScrollReveal>
 
         <div className="flex items-end justify-between mb-14 flex-wrap gap-4">
           <ScrollReveal delay={0.05}>
             <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-bold text-[var(--text-primary)] leading-tight tracking-tight">
-              Things I've built.
+              Key Projects
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.1} direction="right">

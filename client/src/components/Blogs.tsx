@@ -44,7 +44,7 @@ export default function Blogs() {
         <ScrollReveal direction="left">
           <div className="flex items-center gap-3 mb-5">
             <span className="w-10 h-px bg-[var(--accent)]" />
-            <span className="font-mono text-[var(--accent)] text-xs tracking-widest uppercase">Writing</span>
+            <span className="font-mono text-[var(--accent)] text-1xl tracking-widest uppercase">Writing</span>
           </div>
         </ScrollReveal>
 
