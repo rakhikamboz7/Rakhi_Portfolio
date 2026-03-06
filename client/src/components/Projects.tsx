@@ -17,7 +17,7 @@ const projects: Project[] = [
   title: "SDG Quest WebApp",
   description: "A sustainable development learning and community platform where users explore UN Sustainable Development Goals, take interactive quizzes, and engage in discussions. Implemented role-based authentication, dynamic quiz engine, and CMS-powered content management.",
   tags: ["React.js", "Node.js", "MongoDB", "Tailwind CSS", "Framer Motion", "Sanity CMS", "JWT Authentication"],
-  liveUrl: "https://sdg-quest-webapp-bqhp.vercel.app/",
+  liveUrl: "https://sdg-quest-5n7s.vercel.app/",
   githubUrl: "https://github.com/rakhikamboz7/SDG-Quest",
   featured: true,
   year: "2025",
